@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find . -type f \\\\\\(-name *.cs -o -name *.csproj -o -name *.sln \\\\\\))",
+      "Bash(dotnet new:*)",
+      "Bash(dotnet sln:*)",
+      "Bash(dotnet add:*)",
+      "Bash(dotnet build:*)",
+      "Bash(grep:*)",
+      "Bash(/tmp/test_analysis.md:*)",
+      "Read(//tmp/**)",
+      "Bash(dotnet list:*)",
+      "Bash(dotnet remove:*)",
+      "Bash(dotnet ef:*)",
+      "Bash(npm create:*)",
+      "Bash(npm install:*)",
+      "Bash(npx tailwindcss:*)",
+      "Bash(npm run:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(where dotnet:*)",
+      "Bash(dotnet --version)",
+      "Bash(node --input-type=module --eval \":*)"
+    ]
+  }
+}

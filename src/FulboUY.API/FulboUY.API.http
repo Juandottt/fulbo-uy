@@ -1,0 +1,6 @@
+@FulboUY.API_HostAddress = http://localhost:5089
+
+GET {{FulboUY.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
