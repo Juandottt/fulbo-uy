@@ -98,6 +98,7 @@ public class MatchService : IMatchService
         {
             Id = created.Id,
             MatchId = created.MatchId,
+            UserId = profile.UserId,
             PlayerProfileId = created.PlayerProfileId,
             PlayerName = profile.Name,
             TeamNumber = created.TeamNumber,
@@ -118,6 +119,7 @@ public class MatchService : IMatchService
         {
             Id = p.Id,
             MatchId = p.MatchId,
+            UserId = p.PlayerProfile?.UserId ?? Guid.Empty,
             PlayerProfileId = p.PlayerProfileId,
             PlayerName = p.PlayerProfile?.Name ?? "Desconocido",
             TeamNumber = p.TeamNumber,

@@ -20,7 +20,8 @@
       "Bash(git commit:*)",
       "Bash(where dotnet:*)",
       "Bash(dotnet --version)",
-      "Bash(node --input-type=module --eval \":*)"
+      "Bash(node --input-type=module --eval \":*)",
+      "Bash(dotnet test:*)"
     ]
   }
 }

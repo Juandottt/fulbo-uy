@@ -17,7 +17,7 @@ export default function LoginPage() {
     setLoading(true)
     try {
       const data = await apiLogin(email, password)
-      login({ email: data.email, role: data.role }, data.token)
+      login({ userId: data.userId, email: data.email, role: data.role }, data.token)
       navigate('/matches')
     } catch (err) {
       setError(err.message)

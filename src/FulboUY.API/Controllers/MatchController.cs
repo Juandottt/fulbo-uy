@@ -179,8 +179,9 @@ public class MatchController : ControllerBase
         }
     }
 
-    /// <summary>Confirmar pago de un participante</summary>
+    /// <summary>Confirmar pago de un participante (solo Admin)</summary>
     [HttpPost("{id:guid}/participants/{participantId:guid}/pay")]
+    [Authorize(Roles = "Admin")]
     [ProducesResponseType(typeof(MatchParticipantResponse), 200)]
     [ProducesResponseType(400)]
     [ProducesResponseType(404)]
@@ -239,6 +240,7 @@ public class MatchController : ControllerBase
     private static MatchParticipantResponse MapToParticipantResponse(Application.DTOs.Match.MatchParticipantDto dto) => new()
     {
         Id = dto.Id,
+        UserId = dto.UserId,
         PlayerProfileId = dto.PlayerProfileId,
         PlayerName = dto.PlayerName,
         TeamNumber = dto.TeamNumber,

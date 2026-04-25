@@ -112,7 +112,7 @@ export default function MatchDetailPage() {
   if (loading) return <PageSpinner />
   if (!match) return <p className="text-red-400 text-center py-12">Partido no encontrado.</p>
 
-  const isJoined = participants.some((p) => p.playerName === user?.name)
+  const isJoined = participants.some((p) => p.userId === user?.userId)
   const fillPct = Math.round((match.participantCount / match.maxPlayers) * 100)
   const progressColor = fillPct >= 100 ? 'bg-yellow-500' : fillPct >= 60 ? 'bg-green-400' : 'bg-green-600'
 
@@ -216,7 +216,7 @@ export default function MatchDetailPage() {
                       E{p.teamNumber}
                     </span>
                   )}
-                  {p.hasAid ? (
+                  {p.hasPaid ? (
                     <span className="text-xs text-green-400 font-medium">✓ Pagó</span>
                   ) : (
                     <span className="text-xs text-gray-600">Pendiente</span>
@@ -325,9 +325,9 @@ export default function MatchDetailPage() {
                       {initials(p.playerName)}
                     </div>
                     <span className="text-gray-200 text-sm flex-1">{p.playerName}</span>
-                    {p.hasAid ? (
+                    {p.hasPaid ? (
                       <span className="text-green-400 text-xs font-medium">✓ Pagó</span>
-                    ) : participant ? (
+                    ) : isAdmin && participant ? (
                       <button
                         onClick={() => handleConfirmPayment(participant.id)}
                         disabled={payingId === participant.id}

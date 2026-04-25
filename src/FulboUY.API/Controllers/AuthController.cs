@@ -26,6 +26,7 @@ public class AuthController : ControllerBase
             var result = await _authService.RegisterAsync(request.Email, request.Password);
             var response = new AuthResponse
             {
+                UserId = result.UserId,
                 Token = result.Token,
                 Email = result.Email,
                 Role = result.Role,
@@ -50,6 +51,7 @@ public class AuthController : ControllerBase
             var result = await _authService.LoginAsync(request.Email, request.Password);
             var response = new AuthResponse
             {
+                UserId = result.UserId,
                 Token = result.Token,
                 Email = result.Email,
                 Role = result.Role,
