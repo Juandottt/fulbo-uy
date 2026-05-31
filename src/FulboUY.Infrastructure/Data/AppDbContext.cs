@@ -12,6 +12,7 @@ public class AppDbContext : DbContext
     public DbSet<Match> Matches => Set<Match>();
     public DbSet<MatchParticipant> MatchParticipants => Set<MatchParticipant>();
     public DbSet<InviteLink> InviteLinks => Set<InviteLink>();
+    public DbSet<Product> Products => Set<Product>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -69,6 +70,14 @@ public class AppDbContext : DbContext
                 .WithMany(m => m.InviteLinks)
                 .HasForeignKey(il => il.MatchId)
                 .OnDelete(DeleteBehavior.Cascade);
+        });
+
+        // Product
+        modelBuilder.Entity<Product>(e =>
+        {
+            e.HasKey(p => p.Id);
+            e.Property(p => p.Name).IsRequired().HasMaxLength(100);
+            e.Property(p => p.Price).HasColumnType("decimal(10,2)");
         });
     }
 }
