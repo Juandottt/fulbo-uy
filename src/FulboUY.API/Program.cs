@@ -69,6 +69,7 @@ builder.Services.AddScoped<IPlayerProfileRepository, PlayerProfileRepository>();
 builder.Services.AddScoped<IMatchRepository, MatchRepository>();
 builder.Services.AddScoped<IMatchParticipantRepository, MatchParticipantRepository>();
 builder.Services.AddScoped<IInviteLinkRepository, InviteLinkRepository>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 // Servicios
 builder.Services.AddScoped<IAuthService, AuthService>();
@@ -76,6 +77,7 @@ builder.Services.AddScoped<IPlayerProfileService, PlayerProfileService>();
 builder.Services.AddScoped<IMatchService, MatchService>();
 builder.Services.AddScoped<ITeamBalancingService, TeamBalancingService>();
 builder.Services.AddScoped<ICostSplitService, CostSplitService>();
+builder.Services.AddScoped<IProductService, ProductService>();
 
 var app = builder.Build();
 
